@@ -13,10 +13,10 @@ function passwordGenerator() {
 
     let pass_length_int = parseInt(pass_length);
 
-    while(pass_length_int < 8 || pass_length_int > 128){
-        alert("Password must be between 8 and 128 characters");
+    while(pass_length_int < 8 || pass_length_int > 128 || isNaN(pass_length_int)){
+        alert("Password must be between 8 and 128 characters(this must be a number for length)");
         pass_length = prompt("How long would you like your password to be? (must be between 8 and 128 characters)");
-        pass_length_int = parseInt(pass.length);
+        pass_length_int = parseInt(pass_length);
     }
 
     let special_char = confirm("Would you like your password to contain special characters?");
@@ -30,7 +30,7 @@ function passwordGenerator() {
     let password_generated = "";
 
     function randomGen(length){
-    return Math.floor(Math.random() * length);
+        return Math.floor(Math.random() * length);
     }
 
     if(special_char){
