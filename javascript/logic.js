@@ -5,7 +5,14 @@
     const numerical_characters = "0123456789";
     const uppercase_characters = "ABCDEFGHIJKLMNOPQSTUVWXYZ";
     const lowercase_characters = "abcdefghijklmnopqrstuvwxyz";
-    
+
+    let special_char_count;
+    let num_char_count;
+    let uppercase_char_count;
+    let lowercase_char_count;
+
+    let password_options = "";
+    let password_generated = "";
 function passwordGenerator() {
     /*
 Begin with asking a series of questions to gain user input, and figure out which characters should be used for the new random password
@@ -27,8 +34,6 @@ Begin with asking a series of questions to gain user input, and figure out which
 
 
 
-    let password_options = "";
-    let password_generated = "";
 
     function randomGen(length){
         return Math.floor(Math.random() * length);
@@ -38,6 +43,7 @@ Begin with asking a series of questions to gain user input, and figure out which
     if(special_char){
         password_options = password_options + special_characters;
     }
+    
     if(num_char){
         password_options = password_options + numerical_characters;
     }
@@ -65,6 +71,16 @@ Begin with asking a series of questions to gain user input, and figure out which
     console.log(password_generated);
 
     document.getElementById("password").innerHTML=  password_generated;
+}
+
+
+function passwordChecker(password){
+    //loop through generated password here, and count how many of each character type from user selected types
+
+    for(let i = 0; i < password_generated.length; i++){
+
+    }
+
 }
 
 function textCopy(){
