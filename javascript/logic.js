@@ -64,5 +64,16 @@ Begin with asking a series of questions to gain user input, and figure out which
 
     console.log(password_generated);
 
-    document.getElementById("password").innerHTML= "Your password is " + password_generated;
+    document.getElementById("password").innerHTML=  password_generated;
+}
+
+function text_copy(){
+    let copyText = document.getElementById("password");
+
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+
+    document.execCommand("copy");
+
+    alert("Copied the text " + copyText.value);
 }
