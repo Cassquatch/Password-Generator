@@ -67,13 +67,13 @@ Begin with asking a series of questions to gain user input, and figure out which
     document.getElementById("password").innerHTML=  password_generated;
 }
 
-function text_copy(){
-    let copyText = document.getElementById("password");
+function textCopy(){
+    let copied_text = document.getElementById("password");
 
-    copyText.select();
-    copyText.setSelectionRange(0, 99999);
+    copied_text.select();
+    copied_text.setSelectionRange(0, 99999);
 
     document.execCommand("copy");
 
-    alert("Copied the text " + copyText.value);
+    alert("Copied the text " + copied_text.value);
 }
