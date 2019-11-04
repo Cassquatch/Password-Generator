@@ -13,6 +13,12 @@
 
     let password_options = "";
     let password_generated = "";
+
+    let special_char;
+    let num_char;
+    let upper_char;
+    let lower_char;
+
 function passwordGenerator() {
     /*
 Begin with asking a series of questions to gain user input, and figure out which characters should be used for the new random password
@@ -27,10 +33,10 @@ Begin with asking a series of questions to gain user input, and figure out which
         pass_length_int = parseInt(pass_length);
     }
 
-    let special_char = confirm("Would you like your password to contain special characters?");
-    let num_char = confirm("Would you like your password to contain numerical characters?");
-    let upper_char = confirm("Would you like your password to contain uppercase characters?");
-    let lower_char = confirm("Would you like your password to contain lowercase characters?");
+    special_char = confirm("Would you like your password to contain special characters?");
+    num_char = confirm("Would you like your password to contain numerical characters?");
+    upper_char = confirm("Would you like your password to contain uppercase characters?");
+    lower_char = confirm("Would you like your password to contain lowercase characters?");
 
 
 
@@ -62,11 +68,12 @@ Begin with asking a series of questions to gain user input, and figure out which
 
 
         //generate password, choosing characters randomly from the password_option string and setting them to the generated password
+    function generatePassword(){    
         for(let i = 0; i < pass_length; i++){
             password_generated = password_generated + password_options[randomGen(string_length)];
         } 
-        
-
+    }    
+    generatePassword();
 
     console.log(password_generated);
 
@@ -76,10 +83,10 @@ Begin with asking a series of questions to gain user input, and figure out which
 
 function passwordChecker(password){
     //loop through generated password here, and count how many of each character type from user selected types
-
-    for(let i = 0; i < password_generated.length; i++){
-
+    for(let i = 0; i < password.length; i++){
+                
     }
+    
 
 }
 
