@@ -60,7 +60,7 @@ Begin with asking a series of questions to gain user input, and figure out which
         password_options = password_options + lowercase_characters;
     }
     //if no characters are selected, alert that they must at least choose one 
-    else if(!special_char && !num_char && !upper_char && !lower_char) {
+    if(!special_char && !num_char && !upper_char && !lower_char) {
         alert("You must choose at least one character type");
         return;
         
@@ -79,10 +79,13 @@ Begin with asking a series of questions to gain user input, and figure out which
     }
     generatePassword();
     console.log(passwordChecker(password_generated));
-   
+    
+    //if the password doesnt contain the correct characters selected, generate new one
+    
     while(!passwordChecker(password_generated)){
         generatePassword();
     }
+    password_options = "";
     console.log(passwordChecker(password_generated));
     console.log(password_generated);
 
