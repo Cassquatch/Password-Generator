@@ -58,9 +58,12 @@ Begin with asking a series of questions to gain user input, and figure out which
     }
     if (lower_char) {
         password_options = password_options + lowercase_characters;
-    } else {
+    }
+    //if no characters are selected, alert that they must at least choose one 
+    else if(!special_char && !num_char && !upper_char && !lower_char) {
         alert("You must choose at least one character type");
         return;
+        
     }
 
 
@@ -75,20 +78,51 @@ Begin with asking a series of questions to gain user input, and figure out which
         }
     }
     generatePassword();
-
+    console.log(passwordChecker(password_generated));
+   
+    while(!passwordChecker(password_generated)){
+        generatePassword();
+    }
+    console.log(passwordChecker(password_generated));
     console.log(password_generated);
 
     document.getElementById("password").innerHTML = password_generated;
 }
 
 
-function passwordChecker(password) {
-    //loop through generated password here, and count how many of each character type from user selected types
-    for (let i = 0; i < password.length; i++) {
+function passwordChecker(pass) {
+    
 
+    //check for special characters
+    if(!checkForCharacters(pass, special_characters)){
+        return false;
+    } 
+    //check for number characters
+    if(!checkForCharacters(pass, numerical_characters)){
+        return false;
+    }
+    //check for uppercase characters
+    if(!checkForCharacters(pass, uppercase_characters)){
+        return false;
+    }
+    //check for lowercase characters
+    if(!checkForCharacters(pass, lowercase_characters)){
+        return false;
     }
 
+    return true;
 
+}
+
+//check to see if the password contains necessary characters from string passed
+function checkForCharacters(pass, string){
+    for(let i = 0; i < string.length; i++){
+        if(pass.indexOf(string[i]) > -1){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
 
 function textCopy() {
