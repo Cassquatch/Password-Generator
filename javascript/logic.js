@@ -94,19 +94,23 @@ function passwordChecker(pass) {
     
 
     //check for special characters
-    if(!checkForCharacters(pass, special_characters)){
+   
+    if(!checkForCharacters(pass, special_characters) && special_char){
         return false;
     } 
+    
     //check for number characters
-    if(!checkForCharacters(pass, numerical_characters)){
+    
+    if(!checkForCharacters(pass, numerical_characters) && num_char){
         return false;
     }
+    
     //check for uppercase characters
-    if(!checkForCharacters(pass, uppercase_characters)){
+    if(!checkForCharacters(pass, uppercase_characters) && upper_char){
         return false;
     }
     //check for lowercase characters
-    if(!checkForCharacters(pass, lowercase_characters)){
+    if(!checkForCharacters(pass, lowercase_characters) && lower_char){
         return false;
     }
 
@@ -119,10 +123,9 @@ function checkForCharacters(pass, string){
     for(let i = 0; i < string.length; i++){
         if(pass.indexOf(string[i]) > -1){
             return true;
-        }else{
-            return false;
         }
     }
+    return false;
 }
 
 function textCopy() {
