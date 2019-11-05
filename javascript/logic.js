@@ -14,33 +14,18 @@ let lowercase_char_count;
 let password_options = "";
 let password_generated = "";
 
-let special_char;
-let num_char;
-let upper_char;
-let lower_char;
+let pass_length;
+let pass_length_int;
 
 function passwordGenerator() {
     /*
 Begin with asking a series of questions to gain user input, and figure out which characters should be used for the new random password
 */
-    let pass_length = prompt("How long would you like your password to be? (must be between 8 and 128 characters)");
-
-    let pass_length_int = parseInt(pass_length);
-
-    while (pass_length_int < 8 || pass_length_int > 128 || isNaN(pass_length_int)) {
-        alert("Password must be between 8 and 128 characters(this must be a number for length)");
-        pass_length = prompt("How long would you like your password to be? (must be between 8 and 128 characters)");
-        pass_length_int = parseInt(pass_length);
-    }
-
-    special_char = confirm("Would you like your password to contain special characters?");
-    num_char = confirm("Would you like your password to contain numerical characters?");
-    upper_char = confirm("Would you like your password to contain uppercase characters?");
-    lower_char = confirm("Would you like your password to contain lowercase characters?");
+   
+    userPrompt();
 
 
-
-
+    //function to pick a random index of a string
     function randomGen(length) {
         return Math.floor(Math.random() * length);
     }
@@ -81,7 +66,7 @@ Begin with asking a series of questions to gain user input, and figure out which
     console.log(passwordChecker(password_generated));
     
     //if the password doesnt contain the correct characters selected, generate new one
-    
+
     while(!passwordChecker(password_generated)){
         generatePassword();
     }
@@ -129,6 +114,23 @@ function checkForCharacters(pass, string){
         }
     }
     return false;
+}
+
+function userPrompt(){
+    pass_length = prompt("How long would you like your password to be? (must be between 8 and 128 characters)");
+
+    pass_length_int = parseInt(pass_length);
+
+    while (pass_length_int < 8 || pass_length_int > 128 || isNaN(pass_length_int)) {
+        alert("Password must be between 8 and 128 characters(this must be a number for length)");
+        pass_length = prompt("How long would you like your password to be? (must be between 8 and 128 characters)");
+        pass_length_int = parseInt(pass_length);
+    }
+
+    special_char = confirm("Would you like your password to contain special characters?");
+    num_char = confirm("Would you like your password to contain numerical characters?");
+    upper_char = confirm("Would you like your password to contain uppercase characters?");
+    lower_char = confirm("Would you like your password to contain lowercase characters?");
 }
 
 function textCopy() {
