@@ -6,10 +6,7 @@ const numerical_characters = "0123456789";
 const uppercase_characters = "ABCDEFGHIJKLMNOPQSTUVWXYZ";
 const lowercase_characters = "abcdefghijklmnopqrstuvwxyz";
 
-let special_char_count;
-let num_char_count;
-let uppercase_char_count;
-let lowercase_char_count;
+
 
 let password_options = "";
 let password_generated = "";
