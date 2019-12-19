@@ -4,6 +4,9 @@ This is a random password generator that takes user input for what they would li
 
 ![screenshot of finished application](assets/images/screenshot.png)
 
+# Deployed Application
+https://cassquatch.github.io/Password-Generator/
+
 # Built From
 
 * HTML
